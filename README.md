@@ -119,7 +119,7 @@ AirScrollBridge streams JSON data with the following structure:
 - **`timestamp`**: Unix timestamp with millisecond precision
 - **`attitude`**: Head orientation in radians
   - `pitch`: Forward/backward tilt (nodding)
-  - `yaw`: Left/right turn 
+  - `yaw`: Left/right turn
   - `roll`: Side-to-side tilt
 - **`rotationRate`**: Angular velocity in radians/second
 - **`userAcceleration`**: Linear acceleration excluding gravity (m/s²)
@@ -202,26 +202,36 @@ export TEAM_ID="YOUR_TEAM_ID"
 ### Common Issues
 
 **AirPods Not Detected**
+
+
 - Ensure AirPods are connected and selected as audio output
 - Check Bluetooth connection in System Preferences
 - Try disconnecting and reconnecting AirPods
 
+
 **Permission Denied**
+
 - Go to System Preferences > Privacy & Security > Motion & Fitness
 - Enable access for AirScrollBridge
 - Restart the application after granting permissions
 
+
 **WebSocket Connection Failed**
+
 - Check if port 17604 is available (or change in preferences)
 - Verify firewall settings allow local connections
+
 - Try connecting to `ws://127.0.0.1:17604/` instead
 
 **High CPU Usage**
+
 - Enable Energy Saving mode in preferences
+
 - Reduce update frequency to 30 Hz
 - Close unused WebSocket connections
 
 **Build Errors**
+
 - Ensure Xcode 15.0+ and macOS 14.0+ SDK
 - Run `swift package clean` and rebuild
 - Check that all dependencies are properly resolved
@@ -234,21 +244,27 @@ export TEAM_ID="YOUR_TEAM_ID"
    - macOS version
    - AirPods model  
    - Console logs
+
    - Steps to reproduce
 
 ## Use Cases
 
 ### Web Development
+
+
 - **Scroll Control**: Natural head gestures for web scrolling
 - **3D Interfaces**: Head tracking for WebGL/Three.js applications
 - **Accessibility**: Hands-free navigation for motor impairments
 
+
 ### Gaming
+
 - **Head Tracking**: First-person view control in web games
 - **Motion Controls**: Gesture-based gameplay mechanics
 - **VR/AR**: Head tracking for web-based immersive experiences
 
 ### Productivity
+
 - **Presentation Control**: Hands-free slide navigation
 - **Music Control**: Head gestures for playback control
 - **Accessibility Tools**: Alternative input methods
@@ -277,10 +293,48 @@ We welcome contributions! Please see [CONTRIBUTING.md](CONTRIBUTING.md) for guid
 
 - [ ] **Multiple Device Support**: Handle multiple AirPods simultaneously
 - [ ] **Custom Gestures**: User-defined gesture recognition
+
 - [ ] **Plugin System**: Extensible processing pipeline
 - [ ] **Mobile App**: iOS companion for configuration
 - [ ] **API Expansion**: REST API alongside WebSocket
 - [ ] **Cloud Sync**: Optional cloud-based configuration backup
+
+## Development Status
+
+### ✅ Completed
+
+- **Core Implementation**: All Swift source files implemented and compiling
+- **WebSocket Server**: SwiftNIO-based multi-client WebSocket server
+
+- **Motion Management**: Core Motion integration with CMHeadphoneMotionManager
+- **Menu Bar Interface**: Complete AppKit-based menu bar application
+- **Preferences System**: UserDefaults-based settings with launch-at-login
+
+- **Build System**: Swift Package Manager configuration with all dependencies
+- **Documentation**: Comprehensive README, setup guides, and API documentation
+- **Build Scripts**: Code signing, notarization, and DMG creation scripts
+- **Project Structure**: Professional Swift package layout
+
+### 🔄 Current Status
+
+
+The project **builds successfully** with `swift build --configuration release` and all major components are implemented. The application creates a proper macOS app bundle structure.
+
+### 🧪 Testing Needed
+
+- **Hardware Testing**: Test with actual AirPods and motion permissions
+- **WebSocket Verification**: Multi-client connection testing
+- **UI Testing**: Menu bar interface and popover functionality
+- **Permission Flow**: Core Motion authorization handling
+- **Energy Management**: Battery usage optimization verification
+
+### 🚀 Next Steps
+
+1. **Open in Xcode**: `open Package.swift` for better development experience
+2. **Hardware Testing**: Connect AirPods and test motion detection
+3. **WebSocket Testing**: Use `./scripts/test_websocket.sh` to verify server
+4. **App Bundle Testing**: Test the created app bundle functionality
+5. **Distribution**: Set up Apple Developer credentials for code signing
 
 ## License
 

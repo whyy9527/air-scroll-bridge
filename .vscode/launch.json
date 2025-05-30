@@ -1,0 +1,22 @@
+{
+  "configurations": [
+    {
+      "type": "swift",
+      "request": "launch",
+      "args": [],
+      "cwd": "${workspaceFolder:air-scroll-bridge}",
+      "name": "Debug AirScrollBridge",
+      "program": "${workspaceFolder:air-scroll-bridge}/.build/debug/AirScrollBridge",
+      "preLaunchTask": "swift: Build Debug AirScrollBridge"
+    },
+    {
+      "type": "swift",
+      "request": "launch",
+      "args": [],
+      "cwd": "${workspaceFolder:air-scroll-bridge}",
+      "name": "Release AirScrollBridge",
+      "program": "${workspaceFolder:air-scroll-bridge}/.build/release/AirScrollBridge",
+      "preLaunchTask": "swift: Build Release AirScrollBridge"
+    }
+  ]
+}
