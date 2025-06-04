@@ -25,7 +25,7 @@ class PopoverViewController: NSViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        setupUpdateTimer()
+        setupUI()
     }
     
     override func viewWillAppear() {
@@ -102,7 +102,9 @@ class PopoverViewController: NSViewController {
         self.view = contentView
     }
     
-    private func setupUpdateTimer() {
+
+    private func setupUI() {
+        // Update motion data every second (1 Hz display rate)
         updateTimer = Timer.scheduledTimer(withTimeInterval: 1.0, repeats: true) { [weak self] _ in
             self?.updateMotionDisplay()
         }
